@@ -74,6 +74,8 @@ jobs:
              < scripts/experiments.sh \
              > scripts/experiments_tmp.sh
              
+          cat scripts/experiments_tmp.sh  
+             
       - name: install jarvislabs client
         if: steps.check.outputs.triggered == 'true'      
         run: |
@@ -85,7 +87,8 @@ jobs:
         if: steps.check.outputs.triggered == 'true'        
         run: |
           python clouds/jarvislabs.py \
-            script add ${{ env.CLOUD_AT }} ${{ env.CLOUD_ID }} scripts/experiments_tmp.sh > outputs.txt
+            script add ${{ env.CLOUD_AT }} ${{ env.CLOUD_ID }} scripts/experiments_tmp.sh \
+              > outputs.txt
           echo "::set-output name=script_id::$(cat outputs.txt)"
           
       - name: create vm on jarvislabs

@@ -13,10 +13,10 @@ git config --global user.name "chansung"
 git config --global user.email "deep.diver.csp@gmail.com"
 
 # move to the repo
-git clone https://github.com/codingpot/git-mlops.git
+git clone https://github.com/deep-diver/test_img_clf.git
 
 # install dependencies
-cd git-mlops
+cd test_img_clf
 gh auth setup-git
 git checkout $CUR_BRANCH
 pip install -r requirements.txt

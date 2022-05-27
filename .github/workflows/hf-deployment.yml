@@ -107,7 +107,7 @@ jobs:
           export MODEL_REPO_ID=${{ fromJSON(steps.hf_model.outputs.result).repo_id }}        
           envsubst '$MODEL_REPO_ID' < hf-space/app_template.py > hf-space/app.py
           cat hf-space/app.py
-          rm hf-space/app_template.py
+          rm "hf-space/app_template.py"
           python clouds/huggingface.py \
             repo upload \ 
               "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" --path "hf-space" --repo-type "space"

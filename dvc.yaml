@@ -1,0 +1,35 @@
+stages:
+  train:
+    cmd: python pipeline/train.py outputs/model
+    deps:
+    - data
+    - pipeline/modeling.py
+    - pipeline/train.py
+    params:
+    - train.batch_size
+    - train.epoch
+    - train.lr
+    - train.train_size
+    outs:
+    - outputs/model
+    plots:
+    - dvclive/scalars/loss.tsv:
+        cache: false
+    - dvclive/scalars/sparse_categorical_accuracy.tsv:
+        cache: false
+    - dvclive/scalars/val_loss.tsv:
+        cache: false
+    - dvclive/scalars/val_sparse_categorical_accuracy.tsv:
+        cache: false
+  evaluate:
+    cmd: python pipeline/evaluate.py outputs/model
+    deps:
+    - data/test
+    - outputs/model
+    - pipeline/evaluate.py
+    params:
+    - evaluate.batch_size
+    - evaluate.test
+    metrics:
+    - outputs/metrics.json:
+        cache: false

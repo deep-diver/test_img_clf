@@ -1,7 +1,7 @@
 {
     "step": 0,
-    "loss": 12.44875717163086,
-    "sparse_categorical_accuracy": 0.109375,
-    "val_loss": 13.000092506408691,
-    "val_sparse_categorical_accuracy": 0.125
+    "loss": 12.920334815979004,
+    "sparse_categorical_accuracy": 0.1484375,
+    "val_loss": 11.82056999206543,
+    "val_sparse_categorical_accuracy": 0.1015625
 }

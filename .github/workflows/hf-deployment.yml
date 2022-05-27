@@ -110,4 +110,4 @@ jobs:
           rm hf-space/app_template.py
           python clouds/huggingface.py \
             repo upload \ 
-              "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" --repo-type "space" --path "hf-space"
+              "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" --path "hf-space" --repo-type "space"

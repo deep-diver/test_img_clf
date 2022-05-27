@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python pipeline/train.py outputs/model
+    deps:
+    - path: data
+      md5: 606e9a90b8fa29bd8554acc9d7c68573.dir
+      size: 586251
+      nfiles: 3
+    - path: pipeline/modeling.py
+      md5: 1086122e50c4861e130229cc672fde62
+      size: 1297
+    - path: pipeline/train.py
+      md5: a54606746b87d11b47b9527e4db965d7
+      size: 2440
+    params:
+      params.yaml:
+        train.batch_size: 32
+        train.epoch: 1
+        train.lr: 0.001
+        train.train_size: 128
+    outs:
+    - path: dvclive/scalars/loss.tsv
+      md5: 41ca46ce92565b466904abbb8554c656
+      size: 56
+    - path: dvclive/scalars/sparse_categorical_accuracy.tsv
+      md5: 3946f3a9cb5fc28b82b3f01b6f20b994
+      size: 70
+    - path: dvclive/scalars/val_loss.tsv
+      md5: 49557961610f02ef88ecf7708ea9ccc7
+      size: 61
+    - path: dvclive/scalars/val_sparse_categorical_accuracy.tsv
+      md5: 9e5be45fa72579a12b9e219a33ffec80
+      size: 71
+    - path: outputs/model
+      md5: f6293e11516acc31a9f5d1b086195c86.dir
+      size: 99062347
+      nfiles: 4
+  evaluate:
+    cmd: python pipeline/evaluate.py outputs/model
+    deps:
+    - path: data/test
+      md5: 5929b3522ef9a55524a4e00ae0250d3e.dir
+      size: 290499
+      nfiles: 1
+    - path: outputs/model
+      md5: f6293e11516acc31a9f5d1b086195c86.dir
+      size: 99062347
+      nfiles: 4
+    - path: pipeline/evaluate.py
+      md5: 69a2c14067a49a059ea95bddd8ec2021
+      size: 1622
+    params:
+      params.yaml:
+        evaluate.batch_size: 32
+        evaluate.test: test
+    outs:
+    - path: outputs/metrics.json
+      md5: 7f9a43a9cce68fba4cc223722b9ffe8f
+      size: 66

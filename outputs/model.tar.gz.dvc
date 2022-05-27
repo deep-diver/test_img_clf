@@ -1,0 +1,4 @@
+outs:
+- md5: 1043bb04f97f6b7fe3ae665808608ee7
+  size: 88052078
+  path: model.tar.gz

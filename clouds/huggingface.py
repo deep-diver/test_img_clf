@@ -108,7 +108,7 @@ if __name__ == '__main__':
             print(result)
     
         if arguments['<repoid>']:
-            repoid = arguments['<repoid']
+            repoid = arguments['<repoid>']
             repo_type = arguments['--repo-type']
             target_path = arguments['--target-path']
 

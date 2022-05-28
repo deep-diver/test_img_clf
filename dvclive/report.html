@@ -13,25 +13,25 @@
 <body>
     <table>
 <thead>
-<tr><th>dvclive.json                                                                                                                                                       </th></tr>
+<tr><th>dvclive.json                                                                                                                                                            </th></tr>
 </thead>
 <tbody>
-<tr><td>{&#x27;data&#x27;: {&#x27;step&#x27;: 0, &#x27;loss&#x27;: 12.44875717163086, &#x27;sparse_categorical_accuracy&#x27;: 0.109375, &#x27;val_loss&#x27;: 13.000092506408691, &#x27;val_sparse_categorical_accuracy&#x27;: 0.125}}</td></tr>
+<tr><td>{&#x27;data&#x27;: {&#x27;step&#x27;: 0, &#x27;loss&#x27;: 12.920334815979004, &#x27;sparse_categorical_accuracy&#x27;: 0.1484375, &#x27;val_loss&#x27;: 11.82056999206543, &#x27;val_sparse_categorical_accuracy&#x27;: 0.1015625}}</td></tr>
 </tbody>
 </table>
 <br>
 
-    <div id = "plot_val_sparse_categorical_accuracy">
+    <div id = "plot_loss">
         <script type = "text/javascript">
             var spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "data": {
         "values": [
     {
+        "loss": "12.920334815979004",
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1653669443084",
-        "val_sparse_categorical_accuracy": "0.125"
+        "timestamp": "1653670897109"
     }
 ]
     },
@@ -47,9 +47,9 @@
                     "title": "step"
                 },
                 "y": {
-                    "field": "val_sparse_categorical_accuracy",
+                    "field": "loss",
                     "type": "quantitative",
-                    "title": "val_sparse_categorical_accuracy",
+                    "title": "loss",
                     "scale": {
                         "zero": false
                     }
@@ -114,14 +114,14 @@
                     "encoding": {
                         "text": {
                             "type": "quantitative",
-                            "field": "val_sparse_categorical_accuracy"
+                            "field": "loss"
                         },
                         "x": {
                             "field": "step",
                             "type": "quantitative"
                         },
                         "y": {
-                            "field": "val_sparse_categorical_accuracy",
+                            "field": "loss",
                             "type": "quantitative"
                         }
                     },
@@ -147,7 +147,7 @@
     ]
 }
 ;
-            vegaEmbed('#plot_val_sparse_categorical_accuracy', spec);
+            vegaEmbed('#plot_loss', spec);
         </script>
     </div>
     
@@ -160,9 +160,9 @@
         "values": [
     {
         "rev": "workspace",
-        "sparse_categorical_accuracy": "0.109375",
+        "sparse_categorical_accuracy": "0.1484375",
         "step": "0",
-        "timestamp": "1653669443084"
+        "timestamp": "1653670897109"
     }
 ]
     },
@@ -292,8 +292,8 @@
     {
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1653669443084",
-        "val_loss": "13.000092506408691"
+        "timestamp": "1653670897110",
+        "val_loss": "11.82056999206543"
     }
 ]
     },
@@ -414,17 +414,17 @@
     </div>
     
 
-    <div id = "plot_loss">
+    <div id = "plot_val_sparse_categorical_accuracy">
         <script type = "text/javascript">
             var spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "data": {
         "values": [
     {
-        "loss": "12.44875717163086",
         "rev": "workspace",
         "step": "0",
-        "timestamp": "1653669443083"
+        "timestamp": "1653670897110",
+        "val_sparse_categorical_accuracy": "0.1015625"
     }
 ]
     },
@@ -440,9 +440,9 @@
                     "title": "step"
                 },
                 "y": {
-                    "field": "loss",
+                    "field": "val_sparse_categorical_accuracy",
                     "type": "quantitative",
-                    "title": "loss",
+                    "title": "val_sparse_categorical_accuracy",
                     "scale": {
                         "zero": false
                     }
@@ -507,14 +507,14 @@
                     "encoding": {
                         "text": {
                             "type": "quantitative",
-                            "field": "loss"
+                            "field": "val_sparse_categorical_accuracy"
                         },
                         "x": {
                             "field": "step",
                             "type": "quantitative"
                         },
                         "y": {
-                            "field": "loss",
+                            "field": "val_sparse_categorical_accuracy",
                             "type": "quantitative"
                         }
                     },
@@ -540,7 +540,7 @@
     ]
 }
 ;
-            vegaEmbed('#plot_loss', spec);
+            vegaEmbed('#plot_val_sparse_categorical_accuracy', spec);
         </script>
     </div>
     

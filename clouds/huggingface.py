@@ -114,8 +114,8 @@ if __name__ == '__main__':
             repoid = arguments['<repoid>']
             repo_type = arguments['--repo-type']
             
-            if repo_type == 'space':
-                target_path = 'hf-space' if arguments['--target-path'] == 'outputs/model.tar.gz'
+            if repo_type == 'space' and arguments['--target-path'] == 'outputs/model.tar.gz':
+                target_path = 'hf-space'
             else:
                 target_path = arguments['--target-path']
                 

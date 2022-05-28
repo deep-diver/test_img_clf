@@ -104,12 +104,11 @@ jobs:
       - name: Upload app to HF's space repo
         if: fromJSON(steps.hf_space.outputs.result).status == 'success'
         run: |
-          export MODEL_REPO_ID=${{ fromJSON(steps.hf_model.outputs.result).repo_id }}        
+          export MODEL_REPO_ID=${{ fromJSON(steps.hf_model.outputs.result).repo_id }}
           envsubst '$MODEL_REPO_ID' < hf-space/app_template.py > hf-space/app.py
           
           rm "hf-space/app_template.py"
-          cat clouds/huggingface.py
           
           python clouds/huggingface.py \
             repo upload \ 
-              ${{ env.HF_AT }} ${{ fromJSON(steps.hf_space.outputs.result).repo_id }} --target-path="hf-space" --repo-type="space"
+              "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" --target-path="hf-space" --repo-type="space"

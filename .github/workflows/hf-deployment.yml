@@ -108,7 +108,7 @@ jobs:
           
           python clouds/huggingface.py \
             repo upload \ 
-             "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" "--repo-type" "space" "--target-path" "hf_space" \
+             "${{ env.HF_AT }}" "${{ env.HF_AT }}" "${{ fromJSON(steps.hf_space.outputs.result).repo_id }}" "--repo-type" "space" "--target-path" "hf_space" \
                > outputs.json
                
             cat outputs.json               

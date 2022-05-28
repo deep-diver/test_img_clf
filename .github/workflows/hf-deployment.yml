@@ -108,7 +108,7 @@ jobs:
           
           python clouds/huggingface.py \
             repo upload \ 
-             "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" "chansung/test_img_clf_space" --repo-type "space" --target-path "hf-space" \
+             "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" "chansung/test_img_clf_space" --repo-type "space" --target-path "hf_space" \
                > outputs.json
                
             cat outputs.json               

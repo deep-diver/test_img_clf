@@ -110,6 +110,10 @@ if __name__ == '__main__':
         if arguments['<repoid>']:
             repoid = arguments['<repoid>']
             repo_type = arguments['--repo-type']
-            target_path = 'hf-space' if arguments['--target-path'] == 'outputs/model.tar.gz' and repo_type == 'space' else arguments['--target-path']
-
+            
+            if repo_type is 'space':
+                target_path = 'hf-space' if arguments['--target-path'] is 'outputs/model.tar.gz'
+            else:
+                target_path = arguments['--target-path']
+                
             result = upload_to_repo(token, repoid, target_path, repo_type)

@@ -75,7 +75,7 @@ def upload_to_repo(token: str,
     hf_api = HfApi()
     hf_api.set_access_token(token)
 
-    if repo_type == 'space' and target_path == 'outputs/model.tar.gz:
+    if repo_type == 'space' and target_path == 'outputs/model.tar.gz':
       target_path = 'hf-space'
     
     try:

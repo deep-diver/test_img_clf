@@ -1,4 +1,4 @@
 dvc[gdrive]
 tensorflow
-typer
+docopt
 huggingface-hub

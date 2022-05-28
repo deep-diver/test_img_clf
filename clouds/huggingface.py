@@ -74,7 +74,7 @@ def _upload_files(hf_api,
 
     else:
         hf_api.upload_file(path_or_fileobj=path,
-                           path_in_repo=path,
+                           path_in_repo='/'.join(filepath.split('/')[1:]),
                            repo_id=repo_id,
                            token=token,
                            repo_type=repo_type)

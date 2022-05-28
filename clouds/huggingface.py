@@ -11,6 +11,9 @@ app = typer.Typer()
 repo_app = typer.Typer()
 app.add_typer(repo_app, name="repo")
 
+space_app = typer.Typer()
+app.add_typer(space_app, name="space")
+
 @repo_app.command("create")
 def create_or_repo(token: str,
                 user_id: str,
@@ -84,5 +87,20 @@ def upload_to_repo(token: str,
     except ValueError:
         typer.echo(json.dumps({'status': 'fail', 'count': f'{0}'}))
 
+@space_app.command("upload")        
+def upload_to_space(token: str,
+                   repo_id: str,
+                   path: str='hf-space',
+                   repo_type: str='space'):
+    hf_api = HfApi()
+    hf_api.set_access_token(token)
+
+    try:
+        count = _upload_files(hf_api, token, repo_id, path, repo_type)
+        typer.echo({'status': 'success', 'count': count})
+
+    except ValueError:
+        typer.echo({'status': 'fail'})        
+        
 if __name__ == "__main__":
     app()

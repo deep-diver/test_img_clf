@@ -102,7 +102,7 @@ if __name__ == '__main__':
             userid = arguments['<userid>']
             reponame = arguments['<reponame>']
             repo_type = arguments['--repo-type']
-            space_sdk = arguments['--space-sdk'] if repo_type == 'model' else None
+            space_sdk = arguments['--space-sdk'] if repo_type is not 'model' else None
 
             result = create_or_repo(token, userid, reponame, repo_type, space_sdk)
             print(result)

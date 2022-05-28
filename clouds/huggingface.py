@@ -102,7 +102,10 @@ if __name__ == '__main__':
             userid = arguments['<userid>']
             reponame = arguments['<reponame>']
             repo_type = arguments['--repo-type']
-            space_sdk = arguments['--space-sdk'] if repo_type is not 'model' else None
+            if repo_type == 'model':
+                space_sdk = None
+            else:
+                space_sdk = arguments['--space-sdk']
 
             result = create_or_repo(token, userid, reponame, repo_type, space_sdk)
             print(result)
@@ -111,8 +114,8 @@ if __name__ == '__main__':
             repoid = arguments['<repoid>']
             repo_type = arguments['--repo-type']
             
-            if repo_type is 'space':
-                target_path = 'hf-space' if arguments['--target-path'] is 'outputs/model.tar.gz'
+            if repo_type == 'space':
+                target_path = 'hf-space' if arguments['--target-path'] == 'outputs/model.tar.gz'
             else:
                 target_path = arguments['--target-path']
                 
